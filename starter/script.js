@@ -88,10 +88,35 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-// Function to prompt user for password options
-function getPasswordOptions() {
 
+// Function to prompt user for password options
+function getPasswordOptions(lowercase, uppercase, numeric, special){ 
+ // Validate password length
+ while (true) {
+  // Prompt for password length
+  var length = prompt(
+    'Enter the length of the password (between 10 and 64 characters):'
+  );
+
+  // Validate password length
+  if (length >= 10 && length <= 64) {
+    return;
+  } else {
+    alert('Password must be at least 10 characters but no more than 64');
+  }
 }
+}
+
+getPasswordOptions();
+
+// Prompt for character types
+const lowercase = confirm('Include lowercase characters?');
+const uppercase = confirm('Include uppercase characters?');
+const numeric = confirm('Include numeric characters?');
+const special = confirm('Include special characters ($@%&*)?');
+
+
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -100,6 +125,7 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
+  
 
 }
 
@@ -110,9 +136,10 @@ var generateBtn = document.querySelector('#generate');
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
-
   passwordText.value = password;
 }
+
+
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
