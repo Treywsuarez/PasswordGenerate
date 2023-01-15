@@ -133,8 +133,8 @@ function getPasswordOptions() {
     var special = confirm('Include special characters ($@%&*)?');
     userInput['special'] = special;
 
-    // in the case that a user has rejected all character types, the loop starts again
-    // and they're prompted to start their options again and to select at least one character type.
+    // if user has rejected all character types, the loop starts again
+    // prompted to start their options again and to select at least one character type.
     if (Object.values(userInput).includes(true) == false) {
       alert('You need to select at least one character type');
     };
@@ -163,7 +163,7 @@ function generatePassword() {
   var userInput = getPasswordOptions();
 
   //The user's password will be stored in an empty array
-  //In this loop, we are going to check that the generator meets the user's desired length (userInput)
+  //In this loop, check that the generator meets the user's desired length (userInput)
   var maxLength = userInput.length
   password = []
   var i = 0;
