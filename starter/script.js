@@ -158,3 +158,42 @@ function checkSizeAdd(newArray, item) {
   return true
 
 };
+// Function to generate password with user input
+function generatePassword() {
+  var userInput = getPasswordOptions();
+
+  //The user's password will be stored in an empty array
+  //In this loop, we are going to check that the generator meets the user's desired length (userInput)
+  var maxLength = userInput.length
+  password = []
+  var i = 0;
+  while (password.length < maxLength) {
+
+    //Check the desired password length and character type then keep adding characters until we reach that length 
+    if (userInput.uppercase == true && password.length < maxLength) {
+      password.push(getRandom(upperCasedCharacters));
+      i++
+
+    };
+    if (userInput.lowercase == true && password.length < maxLength) {
+      password.unshift(getRandom(lowerCasedCharacters));
+      i++
+
+    };
+    if (userInput.numeric == true && password.length < maxLength) {
+      password.unshift(getRandom(numericCharacters));
+      i++
+
+    };
+    if (userInput.specialChars == true && password.length < maxLength) {
+      password.push(getRandom(specialCharacters));
+      i++
+
+    };
+
+  }
+  return password.join("");
+}
+
+
+
