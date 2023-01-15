@@ -89,48 +89,69 @@ var upperCasedCharacters = [
 ];
 
 
-// Function to prompt user for password options
-function getPasswordOptions(lowercase, uppercase, numeric, special){ 
- // Validate password length
- while (true) {
-  // Prompt for password length
-  var length = prompt(
-    'Enter the length of the password (between 10 and 64 characters):'
-  );
+var password = "";
 
+// Function to prompt user for password options
+function getPasswordOptions() {
+  userInput = {};
   // Validate password length
-  if (length >= 10 && length <= 64) {
-    return;
-  } else {
-    alert('Password must be at least 10 characters but no more than 64');
-  }
-}
-}
+  while (true) {
+    // Prompt for password length, ParseInt to convert into string then return as an Integer 
+    var newPassword = parseInt(prompt(
+      'Enter the length of the password (between 10 and 64 characters):'
+    ));
+
+    // Validate password length
+    if (newPassword >= 10 && newPassword <= 64 && Number.isInteger(newPassword)) {
+      userInput['length'] = newPassword;
+
+      //Once password length is confirmed by numer, this loop breaks
+      return;
+
+      //if not, the user is asked to enter length again using numeric value
+    } else {
+      alert('Password must be at least 10 characters but no more than 64');
+    }
+  };
+};
 
 getPasswordOptions();
 
 // Prompt for character types
-const lowercase = confirm('Include lowercase characters?');
-const uppercase = confirm('Include uppercase characters?');
-const numeric = confirm('Include numeric characters?');
-const special = confirm('Include special characters ($@%&*)?');
+var lowercase = confirm('Include lowercase characters?');
+var uppercase = confirm('Include uppercase characters?');
+var numeric = confirm('Include numeric characters?');
+var special = confirm('Include special characters ($@%&*)?');
 
 
 
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  // Generate a random index based on the array length
+  var index = Math.floor(Math.random() * arr.length);
+  // Return the element at the random index
+  return arr[index];
 }
+
+var specialE = getRandom(specialCharacters);
+var numericE = getRandom(numericCharacters);
+var lowerc = getRandom(lowerCasedCharacters);
+var upperc = getRandom(upperCasedCharacters);
+
 
 // Function to generate password with user input
 function generatePassword() {
-  
 
 }
 
+
+
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
+generateBtn.addEventListener("click", function () {
+  const gpassword = generatePassword();
+});
 
 // Write password to the #password input
 function writePassword() {
