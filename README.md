@@ -5,7 +5,7 @@ An application that an employee can use to generate a random password based on c
 A random generator app to help users come up with a password of their desired length and character types. They have the option of a password of a length betwee 10 and 64 and options of having lowercase, uppercase, numeric, and special characters.
 
 ## Usage 
-The project has been deployed on GitHub Pages and can be accessed using this link:
+The project has been deployed on GitHub Pages and can be accessed using this link: https://treywsuarez.github.io/PasswordGenerate/
 
 ![PasswordGenertor](./assets/05-javascript-challenge-demo.png)
 
